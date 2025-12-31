@@ -20,12 +20,12 @@ variable "vpc_name" {
   type        = string
 }
 
-variable "subnet1_name" {
+variable "subnet_name_1" {
   description = "First subnet name"
   type        = string
 }
 
-variable "subnet2_name" {
+variable "subnet_name_2" {
   description = "Second subnet name"
   type        = string
 }

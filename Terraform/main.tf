@@ -11,13 +11,20 @@ provider "google" {
 
 # Subnet 1
 module "network_subnet1" {
-  source = "./modules/network"
+  source      = "./modules/network"
+  vpc_name    = var.vpc_name
+  subnet_name = var.subnet_name_1
+  subnet_cidr = var.subnet1_cidr
+  region      = var.region
 }
 
 # Subnet 2
 module "network_subnet2" {
-  source = "./modules/network"
-
+  source      = "./modules/network"
+  vpc_name    = var.vpc_name
+  subnet_name = var.subnet_name_2
+  subnet_cidr = var.subnet2_cidr
+  region      = var.region
 }
 
 # -------------------------------
@@ -25,38 +32,31 @@ module "network_subnet2" {
 # -------------------------------
 
 # VM in Subnet 1
-module "compute_vm1" {
-  source = "./modules/compute"
-
-  instance_name = var.instance_name
-  machine_type  = var.machine_type
-  zone          = var.zone
-  disk_image    = var.disk_image
-  disk_size     = var.disk_size
-
-  subnet = module.network_subnet1.subnet_id
+module "network_subnet1" {
+  source      = "./modules/network"
+  vpc_name    = var.vpc_name
+  subnet_name = var.subnet_name_1
+  subnet_cidr = var.subnet1_cidr
+  region      = var.region
 }
 
 # VM in Subnet 2
-module "compute_vm2" {
-  source = "./modules/compute"
-
-  instance_name = var.instance_name2
-  machine_type  = var.machine_type
-  zone          = var.zone
-  disk_image    = var.disk_image
-  disk_size     = var.disk_size
-
-  subnet = module.network_subnet2.subnet_id
+module "network_subnet2" {
+  source      = "./modules/network"
+  vpc_name    = var.vpc_name
+  subnet_name = var.subnet_name_2
+  subnet_cidr = var.subnet2_cidr
+  region      = var.region
 }
 
+
 # -------------------------------
-# FIREWALL RULE (Optional)
+# FIREWALL RULE
 # -------------------------------
 
 resource "google_compute_firewall" "allow_ssh" {
   name    = var.firewall_name
-  network = var.vpc_name
+  network = module.network_subnet1.vpc_id # reference created VPC
 
   allow {
     protocol = "tcp"

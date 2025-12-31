@@ -2,11 +2,11 @@ variable "vpc_name" {
   description = "myvpc"
     type        = string
 }
-variable "subnet1_name" {
+variable "subnet_name_1" {
   description = "subnet1"
     type        = string
 }
-variable "subnet2_name" {
+variable "subnet_name_2" {
   description = "subnet2"
     type        = string
 }
@@ -15,10 +15,10 @@ variable "region" {
         type        = string    
 }
 variable "subnet1_cidr" {
-  description = "10.0.1.0/24"
+  description = "cidr for subnet1"
     type        = string
 }
 variable "subnet2_cidr" {
-    description = "10.0.2.0/24"
+    description = "cidr for subnet2"
         type        = string
 }

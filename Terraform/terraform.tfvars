@@ -4,8 +4,8 @@ zone       = "asia-south1-a"
 
 # VPC & Subnets
 vpc_name      = "myvpc"
-subnet1_name  = "my-subnet1"
-subnet2_name  = "my-subnet2"
+subnet_name_1  = "my-subnet1"
+subnet_name_2  = "my-subnet2"
 subnet1_cidr  = "10.0.1.0/24"
 subnet2_cidr  = "10.0.2.0/24"
 
