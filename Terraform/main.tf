@@ -1,35 +1,44 @@
-# Configure GCP provider
+
+########################################
+# PROVIDER CONFIGURATION
+########################################
 provider "google" {
+  # GCP project ID where resources will be created
   project = var.project_id
+
+  # Default region for resources
   region  = var.region
+
+  # Default zone for Compute Engine
   zone    = var.zone
 }
 
-# -------------------------------
-# NETWORK MODULES
-# -------------------------------
+########################################
+# VPC MODULE CALL
+########################################
+module "vpc" {
+  # Path to the VPC module
+  source = "./modules/vpc"
 
-# Subnet 1
-module "network_subnet1"{
-  source      = "../modules/network"
+  # Input variables passed to the VPC module
   vpc_name    = var.vpc_name
-  subnet_name = var.subnet_name_1
-  subnet_cidr = var.subnet1_cidr
+  subnet_name = var.subnet_name
+  subnet_cidr = var.subnet_cidr
   region      = var.region
 }
-# -------------------------------
-# FIREWALL RULE
-# -------------------------------
 
-resource "google_compute_firewall" "allow_ssh" {
-  name    = var.firewall_name
-  network = module.network_subnet1.vpc_id # reference created VPC
+########################################
+# VM MODULE CALL
+########################################
+module "vm" {
+  # Path to the VM module
+  source = "./modules/vm"
 
-  allow {
-    protocol = "tcp"
-    ports    = ["22"]
-  }
+  # VM configuration
+  vm_name       = var.vm_name
+  machine_type = var.machine_type
+  zone          = var.zone
 
-  source_ranges = ["0.0.0.0/0"]
-  direction     = "INGRESS"
+  # Subnet ID received from VPC module output
+  subnet_id = module.vpc.subnet_id
 }

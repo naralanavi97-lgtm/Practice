@@ -1,58 +1,53 @@
-# GCP Project details
+########################################
+# PROJECT VARIABLES
+########################################
+
 variable "project_id" {
   description = "GCP Project ID"
   type        = string
 }
 
 variable "region" {
-  description = "GCP region"
+  description = "GCP Region"
   type        = string
+  default     = "asia-south1"
 }
 
 variable "zone" {
-  description = "GCP zone"
+  description = "GCP Zone"
   type        = string
+  default     = "asia-south1-a"
 }
 
-# VPC & Subnets
+########################################
+# VPC VARIABLES
+########################################
+
 variable "vpc_name" {
-  description = "VPC name"
+  description = "Name of the VPC network"
   type        = string
 }
 
-variable "subnet_name_1" {
-  description = "First subnet name"
+variable "subnet_name" {
+  description = "Name of the subnet"
   type        = string
 }
 
-
-variable "subnet1_cidr" {
-  description = "CIDR for first subnet"
+variable "subnet_cidr" {
+  description = "CIDR range for subnet"
   type        = string
 }
-# VM details
-variable "instance_name" {
-  description = "First VM name"
+
+########################################
+# VM VARIABLES
+########################################
+
+variable "vm_name" {
+  description = "Compute Engine VM name"
   type        = string
 }
 
 variable "machine_type" {
-  description = "Machine type for VM"
-  type        = string
-}
-
-variable "disk_image" {
-  description = "Boot disk image"
-  type        = string
-}
-
-variable "disk_size" {
-  description = "Boot disk size (GB)"
-  type        = number
-}
-
-# Firewall
-variable "firewall_name" {
-  description = "Firewall rule name"
+  description = "VM machine type"
   type        = string
 }

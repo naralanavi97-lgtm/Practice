@@ -1,19 +1,8 @@
-project_id = "august-list-482711-p6"
-region     = "asia-south1"
-zone       = "asia-south1-a"
+project_id   = "my-learning-terraform-482905"
 
-# VPC & Subnets
-vpc_name      = "myvpc"
-subnet_name_1  = "my-subnet1"
-subnet1_cidr  = "10.0.1.0/24"
+vpc_name     = "test-vpc"
+subnet_name  = "test-subnet"
+subnet_cidr  = "10.0.0.0/24"
 
-
-# VM details
-instance_name  = "first-vm"
-machine_type   = "e2-medium"
-
-disk_image = "debian-cloud/debian-11"
-disk_size  = 10
-
-# Firewall
-firewall_name = "my-firewall"
+vm_name      = "test-vm"
+machine_type = "e2-micro"
