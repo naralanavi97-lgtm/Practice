@@ -1,19 +1,73 @@
+# GCP Project details
 variable "project_id" {
-    description = "august-list-482711-p6"
-        type        = string        
+  description = "GCP Project ID"
+  type        = string
 }
 
 variable "region" {
-    description = "asia-south1 (Mumbai)"
-        type        = string
-    
+  description = "GCP region"
+  type        = string
 }
+
 variable "zone" {
-    description = "asia-south1-a"
-        type        = string        
+  description = "GCP zone"
+  type        = string
 }
-variable "image" {
-    description = "debian-cloud/debian-11"
-        type        = string
-   
+
+# VPC & Subnets
+variable "vpc_name" {
+  description = "VPC name"
+  type        = string
+}
+
+variable "subnet1_name" {
+  description = "First subnet name"
+  type        = string
+}
+
+variable "subnet2_name" {
+  description = "Second subnet name"
+  type        = string
+}
+
+variable "subnet1_cidr" {
+  description = "CIDR for first subnet"
+  type        = string
+}
+
+variable "subnet2_cidr" {
+  description = "CIDR for second subnet"
+  type        = string
+}
+
+# VM details
+variable "instance_name" {
+  description = "First VM name"
+  type        = string
+}
+
+variable "instance_name2" {
+  description = "Second VM name"
+  type        = string
+}
+
+variable "machine_type" {
+  description = "Machine type for VM"
+  type        = string
+}
+
+variable "disk_image" {
+  description = "Boot disk image"
+  type        = string
+}
+
+variable "disk_size" {
+  description = "Boot disk size (GB)"
+  type        = number
+}
+
+# Firewall
+variable "firewall_name" {
+  description = "Firewall rule name"
+  type        = string
 }

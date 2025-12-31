@@ -3,8 +3,6 @@ resource "google_compute_instance" "vm_instance" {
   machine_type = var.machine_type
   zone         = var.zone
 
-
-
   boot_disk {
     initialize_params {
       image = var.disk_image
@@ -13,7 +11,12 @@ resource "google_compute_instance" "vm_instance" {
   }
 
   network_interface {
-    network = var.network
+    subnetwork = var.subnet
     access_config {}
+  }
+
+  labels = {
+    env = "dev"
+    app = "terraform"
   }
 }
