@@ -25,29 +25,14 @@ variable "subnet_name_1" {
   type        = string
 }
 
-variable "subnet_name_2" {
-  description = "Second subnet name"
-  type        = string
-}
 
 variable "subnet1_cidr" {
   description = "CIDR for first subnet"
   type        = string
 }
-
-variable "subnet2_cidr" {
-  description = "CIDR for second subnet"
-  type        = string
-}
-
 # VM details
 variable "instance_name" {
   description = "First VM name"
-  type        = string
-}
-
-variable "instance_name2" {
-  description = "Second VM name"
   type        = string
 }
 

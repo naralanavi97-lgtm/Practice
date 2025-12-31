@@ -8,9 +8,3 @@ resource "google_compute_subnetwork" "subnet_name_1" {
       ip_cidr_range = var.subnet1_cidr
         network       = google_compute_network.vpc_name.id
 }
-resource "google_compute_subnetwork" "subnet_name_2" {
-  name          = var.subnet_name_2
-    region        = var.region
-      ip_cidr_range = var.subnet2_cidr
-        network       = google_compute_network.vpc_name.id
-}
