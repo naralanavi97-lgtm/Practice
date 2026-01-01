@@ -1,4 +1,4 @@
-project_id   = "my-learning-terraform-482905"
+project_id   = "august-list-482711-p6"s
 
 vpc_name     = "test-vpc"
 subnet_name  = "test-subnet"
