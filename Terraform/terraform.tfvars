@@ -1,4 +1,4 @@
-project_id   = "august-list-482711-p6"s
+project_id   = "august-list-482711-p6"
 
 vpc_name     = "test-vpc"
 subnet_name  = "test-subnet"

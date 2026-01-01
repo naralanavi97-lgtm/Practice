@@ -1,18 +1,3 @@
-
-########################################
-# PROVIDER CONFIGURATION
-########################################
-provider "google" {
-  # GCP project ID where resources will be created
-  project = var.project_id
-
-  # Default region for resources
-  region  = var.region
-
-  # Default zone for Compute Engine
-  zone    = var.zone
-}
-
 ########################################
 # VPC MODULE CALL
 ########################################
@@ -38,7 +23,5 @@ module "vm" {
   vm_name       = var.vm_name
   machine_type = var.machine_type
   zone          = var.zone
-
-  # Subnet ID received from VPC module output
-  subnet_id = module.vpc.subnet_id
+ subnet_id = module.vpc.subnet_id
 }
