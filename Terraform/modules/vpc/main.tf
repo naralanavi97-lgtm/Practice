@@ -22,7 +22,6 @@ resource "google_compute_subnetwork" "subnet" {
   # IP range
   ip_cidr_range = var.subnet_cidr
 }
-
 ########################################
 # FIREWALL RULE – ALLOW SSH
 ########################################
