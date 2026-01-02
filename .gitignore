@@ -4,3 +4,5 @@
 .terraform.lock.hcl
 /.terraform/
 /.terraform/**
+# ignore service account keys
+gcp/keys.json
