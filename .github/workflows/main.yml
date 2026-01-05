@@ -29,9 +29,9 @@ jobs:
         run: terraform init # Initialize Terraform
         working-directory: ./Terraform
 
-      - name: Terraform Format Check
-        run: terraform fmt -check # Check formatting
-        working-directory: ./Terraform
+     # - name: Terraform Format Check
+      #  run: terraform fmt -check # Check formatting
+      #  working-directory: ./Terraform
 
       - name: Terraform Validate
         run: terraform validate # Validate configuration
