@@ -11,7 +11,6 @@ provider "google" {
   # Default zone for Compute Engine
   zone        = var.zone
   # Use a service account JSON for Application Default Credentials
-  credentials = file("/workspaces/Practice/gcp/keys.json")
 }
 ########################################
 # VPC MODULE CALL
