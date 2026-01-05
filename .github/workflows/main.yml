@@ -7,7 +7,7 @@ on:
 
 jobs:
   terraform:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest #specifies the GitHub-hosted runner OS.
     
     steps:
       - name: Checkout code
