@@ -45,7 +45,3 @@ jobs:
       - name: Terraform Apply # Apply changes to reach desired state
         run: terraform apply -auto-approve tfplan
         working-directory: ./Terraform
-
-      - name: terraform Output
-        run: terraform output # Display output values
-        working-directory: ./Terraform
