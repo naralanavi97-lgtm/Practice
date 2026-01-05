@@ -27,6 +27,7 @@ jobs:
 
       - name: Terraform_Init
         run: terraform init # Initialize Terraform
+        working-directory: ./Terraform
   
 
      # - name: Terraform_Format_Check
@@ -40,10 +41,13 @@ jobs:
 
       - name: Terraform_Destroy
         run: terraform destroy -auto-approve
+        working-directory: ./Terraform
         
 
       - name: Terraform_Plan
         run: terraform plan -out=tfplan # Create execution plan
+        working-directory: ./Terraform
       
       - name: Terraform Apply 
-        run: terraform apply -auto-approve tfplan 
+        run: terraform apply -auto-approve tfplan
+        working-directory: ./Terraform
