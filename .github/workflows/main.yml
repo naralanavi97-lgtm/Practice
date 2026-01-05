@@ -25,26 +25,24 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
 
-      - name: Terraform Init
+      - name: Terraform_Init
         run: terraform init # Initialize Terraform
-        working-directory: ./Terraform
+  
 
-     # - name: Terraform Format Check
+     # - name: Terraform_Format_Check
       #  run: terraform fmt -check # Check formatting
-      #  working-directory: ./Terraform
+  
 
-      - name: Terraform Validate
+      - name: Terraform_Validate
         run: terraform validate # Validate configuration
         working-directory: ./Terraform
 
-      - name: Terraform Destroy
+      - name: Terraform_Destroy
         run: terraform destroy -auto-approve
-        working-directory: ./Terraform
+        
 
-      - name: Terraform Plan
+      - name: Terraform_Plan
         run: terraform plan -out=tfplan # Create execution plan
-        working-directory: ./Terraform
-
-      - name: Terraform Apply # Apply changes to reach desired state
-        run: terraform apply -auto-approve tfplan
-        working-directory: ./Terraform
+      
+      - name: Terraform Apply 
+        run: terraform apply -auto-approve tfplan 
