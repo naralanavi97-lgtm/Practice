@@ -35,7 +35,7 @@ jobs:
 
       - name: Terraform_Validate
         run: terraform validate # Validate configuration
-        working-directory: ./Terraform
+        
 
       - name: Terraform_Destroy
         run: terraform destroy -auto-approve
