@@ -1,0 +1,51 @@
+step 1.Create a VM in GCP
+ option 1:create vm manully (Go to GCP Console → Compute Engine → VM Instances → Create Instance.)
+ option 2 : create vm using terraform
+
+Step 2: after create vm , login into SSH
+
+Step 3: Install GitLab Runner on the Vm
+
+# Update packages
+sudo apt update && sudo apt upgrade -y
+
+# Install dependencies
+sudo apt install -y curl git software-properties-common
+
+# Install Docker
+sudo apt install -y docker.io
+sudo systemctl enable docker
+sudo systemctl start docker
+
+# Add GitLab Runner repo and install
+curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | sudo bash
+
+sudo apt install gitlab-runner -y
+gitlab-runner --version
+
+Step 4: Register the Runner
+
+Go to GitLab Project → Settings → CI/CD → Runners → Registration token.
+
+On VM:
+
+sudo gitlab-runner register
+
+
+GitLab URL: 
+
+Token: <project registration token>
+
+Description: GCP Runner
+
+Tags: gcp,docker (optional)
+
+Executor: docker
+
+Default Docker image: ubuntu:22.04
+
+Step 5: Start and Enable Runner
+sudo systemctl enable gitlab-runner
+sudo systemctl start gitlab-runner
+sudo gitlab-runner status
+
